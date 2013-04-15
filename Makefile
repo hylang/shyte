@@ -1,6 +1,7 @@
 STATIC = static
-STATIC_CSS = $(STATIC)/css
 STATIC_JS = $(STATIC)/js
+STATIC_CSS = $(STATIC)/css
+STATIC_IMGS = $(STATIC)/imgs
 
 
 all: hello deps build
@@ -10,7 +11,7 @@ hello:
 	@cowsay 'Welcome to Hy!'
 
 
-build: clean css js
+build: clean css js imgs
 
 
 css: less
@@ -20,6 +21,8 @@ css: less
 js: coffee
 	cp -rv js/* $(STATIC_JS)
 
+imgs:
+	cp -rv imgs/* $(STATIC_IMGS)
 
 less:
 	make -C less
@@ -32,12 +35,13 @@ coffee:
 
 
 clean:
-	rm -fr $(STATIC_CSS) $(STATIC_JS)
-	mkdir -p $(STATIC_CSS) $(STATIC_JS)
+	rm -fr $(STATIC_CSS) $(STATIC_JS) $(STATIC_IMGS)
+	mkdir -p $(STATIC_CSS) $(STATIC_JS) $(STATIC_IMGS)
 
 
 devel:
 	@./devel.sh
+
 
 deps:
 	set -e; for x in $(shell cat dependencies); do \
@@ -45,4 +49,5 @@ deps:
 		dpkg-query -s $$x >/dev/null 2>&1; \
 	done;
 
-.PHONY: build clean less coffee devel
+
+.PHONY: build clean less coffee devel imgs

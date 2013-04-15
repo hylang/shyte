@@ -22,8 +22,9 @@
 (defn err [msg] (make-response msg 500))
 
 
-; view routes
-(route index "/" [] (render-template "repl.html"))
+(route index "/" [] (render-template "index.html"))
+(route repl "/repl" [] (render-template "repl.html"))
+
 
 (post-route hy2py "/hy2py" []
   (try
