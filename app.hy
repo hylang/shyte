@@ -1,12 +1,11 @@
 ; Copyright (c) Paul R. Tagliamonte <tag@pault.ag>, 2013 under the terms of
 ; hy.
 
-(import-from flask
-             Flask render-template request make-response)
+(import [flask [Flask render-template request make-response]])
 
-(import-from hy.errors HyError)
-(import-from hy.lex LexException)
-(import-from hy.importer import-string-to-ast)
+(import [hy.errors [HyError]])
+(import [hy.lex [LexException]])
+(import [hy.importer [import-buffer-to-ast]])
 
 (import astor.codegen)
 (import autopep8)
@@ -17,7 +16,7 @@
 
 (defn hy-to-py [hython]
   (.fix-string autopep8
-               (.to_source astor.codegen (import-string-to-ast hython))))
+               (.to_source astor.codegen (import-buffer-to-ast hython))))
 
 (defn err [msg] (make-response msg 500))
 
