@@ -11,28 +11,12 @@ hello:
 	@cowsay 'Welcome to Hy!'
 
 
-build: clean css js imgs
+build: clean less
 
-
-css: less
-	cp -rv css/* $(STATIC_CSS)
-
-
-js: coffee
-	cp -rv js/* $(STATIC_JS)
-
-imgs:
-	cp -rv imgs/* $(STATIC_IMGS)
 
 less:
 	make -C less
 	mv -v less/*css $(STATIC_CSS)
-
-
-coffee:
-	make -C coffee
-	mv -v coffee/*js $(STATIC_JS)
-
 
 clean:
 	rm -fr $(STATIC_CSS) $(STATIC_JS) $(STATIC_IMGS)

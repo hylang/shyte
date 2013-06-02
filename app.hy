@@ -1,33 +1,9 @@
 ; Copyright (c) Paul R. Tagliamonte <tag@pault.ag>, 2013 under the terms of
 ; hy.
 
-(import [flask [Flask render-template request make-response]])
-
-(import [hy.errors [HyError]])
-(import [hy.lex [LexException]])
-(import [hy.importer [import-buffer-to-ast]])
-
-(import astor.codegen)
-(import autopep8)
-
+(require hy.contrib.meth)
+(import [flask [Flask render-template]])
 
 (setv app (Flask "__main__"))  ; long story, needed hack
 
-
-(defn hy-to-py [hython]
-  (.fix-string autopep8
-               (.to_source astor.codegen (import-buffer-to-ast hython))))
-
-(defn err [msg] (make-response msg 500))
-
-
-(route index "/index" [] (render-template "index.html"))
-(route repl "/" [] (render-template "repl.html"))
-
-
-(post-route hy2py "/hy2py" []
-  (try
-    (hy-to-py (get request.form "code"))
-  (catch [e LexException] (err "Incomplete Code."))
-  (catch [e HyError] (err "Generic error during processing."))
-  (catch [e Exception] (err "Erm, you broke something."))))
+(route repl "/" [] (render-template "index.html"))
