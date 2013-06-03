@@ -6,5 +6,65 @@
 {% endblock %}
 
 {% block content %}
-I GOT THE YES
+    <h1 class = 'small' >An investigation</h1>
+    <h1 class = 'micro' >on</h1>
+    <h1>Writing Python in Lisp,</h1>
+    <h1 class = 'micro' >including</h1>
+    <h2>bidirectional Python compatibility, macros</h2>
+    <h2>and s-expressions.</h2>
+    <div class = 'spacer' ></div>
+    <h2 class = 'micro'>by</h2>
+    <h2 class = 'author' >A ragtag group of hackers</h2>
+    <h2 class = 'micro'>For a full list, check the AUTHORS file</h2>
+    <div class = 'spacer' ></div>
+    <div class = 'spacer' ></div>
+    <h2>Chapter I.</h2>
+    <h2 class = 'micro' >Nature and design of this work</h2>
+    <main>
+    <p class = 'first' >Hy
+    is a project to compile a Lisp variant down to
+    Python AST. It does this by being just way too clever for it's own
+    good. Hy is a front-end (not unlike gcc or clang) that parses,
+    lexes and compiles S-Expressions into an IR (in our case, Python
+    AST.)</p>
+    <p>
+    There are a number of core rules you must keep in mind when working with
+    Hy. The most fundemental is that Hy compiles to Python, directly. This
+    means everything is always bidirectionally compatibile, which means you can
+    do such crazy things as write Django apps in Hy.
+    </p>
+    <ol>
+        <li>Dashes turn to underscores</li>
+        <li>So called &ldquo;earmufs&rdquo; get converted to uppercase</li>
+        <li>Remember that you have all of Python's stdlib and module
+            ecosystem at your fingertips</li>
+        <!--
+        <li></li>
+        -->
+    </ol>
+    <p>
+    Hy code should be runnable on Python version 2.6, 2.7, 3.2, 3.3 as well
+    as pypy. It might need some small changes (bytes vs strings, some functions
+    return generators in Python 3), but most things work great.
+    </p>
+    </main>
+    <div class = 'spacer' ></div>
+    <h2>Chapter II.</h2>
+    <h2 class = 'micro' >&ldquo;How to get Hy really fast&rdquo;</h2>
+    <main>
+    <p class = 'first' >Getting started with Hy is a snap; just install
+    virtualenv, activate the virtualenv and go ahead and <i>pip install hy</i>.
+    Now the <i>hy(1)</i> command is ready for REPL-ication and general
+    tomfoolery.</p>
+    <p>
+    $ hy<br />
+    =&gt; (+ 1 2 (* 2 3))<br />
+    9<br />
+    </p>
+    <p>
+    Feel free to go and hit up our
+    <a href = 'https://github.com/hylang/hy' >GitHub</a>, report your bugs,
+    star the repo, and hack with it.</p>
+    <div class = 'spacer' ></div>
+    </main>
 {% endblock %}

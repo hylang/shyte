@@ -2,8 +2,7 @@
  *  terms and conditions of Hy it's self.  */
 
 .sans-serif {
-    font-family:            cantarell, tahoma, sans-serif;
-    .old-standard;
+    font-family:            sans-serif;
 }
 
 .reset {
@@ -15,78 +14,66 @@ body, html {
     height:                 100%;
     color:                  #000000;
     .reset;
-    .sans-serif;
+    .old-standard;
+    background-color:       #EDE8CC;
 }
 
-.content {
-    width:                 800px;
-    margin-left:           auto;
-    margin-right:          auto;
+.ye-olde-title {
+    vertical-align:         baseline;
+    text-transform:         uppercase;
+    text-align:             center;
 }
 
 a {
-    color:                  #DCDCDC;
+    color:                  #333333;
+    text-decoration:        none;
 }
 
-h1 {
-    text-align:             center;
-    .reset;
-}
-
-.repl {
-    width:                  49.9%;
-    height:                 90%;
-    .reset;
-}
-
-.border {
-    outline:            0;
-    outline:            thin dotted \9;
-}
-
-.ok {
-    border-color:       rgba(82, 168, 236, 0.8);
-    box-shadow:         inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-    .border;
-}
-
-.error {
-    border-color:       rgba(236, 103, 82, 0.8);
-    box-shadow:         inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(236, 103, 82, 0.6);
-    .border;
-}
-
-.repl-root {
-    margin-top:             2%;
-    width:                  90%;
-    height:                 90%;
+.container {
+    width:                  700px;
     margin-left:            auto;
     margin-right:           auto;
-}
+    padding-top:            100px;
 
-#python-repl {
-    .repl;
-    float:                  right;
-}
-
-#hython-repl {
-    .repl;
-    float:                  left;
-    border-right:           1px solid rgba(82, 168, 236, 0.2);
-}
-
-#hython-target {
-    display:                none;
-}
-
-.clear {
-    clear:                  both;
-}
-
-#build-msgs {
-    border-top:             1px solid rgba(82, 168, 236, 0.2);
-    height:                 8%;
-    padding:                5px;
-    color:                  #777777;
-    overflow:               hidden;
+    h1 {
+        .reset;
+        .ye-olde-title;
+        margin-bottom:      32px;
+        font-size:          2em;
+    }
+    h2 {
+        .reset;
+        .ye-olde-title;
+        font-size:          1.1em;
+    }
+    .small {
+        font-size:          1em;
+    }
+    .micro {
+        font-size:          0.8em;
+    }
+    .author {
+        letter-spacing:     0.25em;
+    }
+    .spacer {
+        height:             100px;
+    }
+    p.first {
+        margin-top:         4em;
+    }
+    main {
+        line-height:        1.5em;
+        font-size:          1.03em;
+        width:              80%;
+        margin-left:        auto;
+        margin-right:       auto;
+        ol {
+            list-style-type:   upper-roman;
+        }
+    }
+    p.first:first-letter {
+        font-size:          3.2em;
+        float:              left;
+        line-height:        1.3em;
+    }
 }
